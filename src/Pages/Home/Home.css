@@ -1,0 +1,16 @@
+/*
+ * File: Home.css
+ * Project: moovee
+ * File Created: Friday, 8th May 2020 8:39:35 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Friday, 8th May 2020 9:15:45 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 42px 0;
+}

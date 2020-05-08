@@ -1,0 +1,47 @@
+/*
+ * File: Header.css
+ * Project: moovee
+ * File Created: Friday, 8th May 2020 8:19:10 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Friday, 8th May 2020 9:16:41 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+.header {
+  margin: 0 auto;
+  height: 80px;
+  background-color: var(--primary);
+}
+
+.header-container {
+  height: 80px;
+  color: #fff;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+
+.brand {
+  font-weight: 700;
+}
+
+.menu ul {
+  padding: 0;
+  display: flex;
+  margin: 0;
+  list-style: none;
+}
+.menu ul li {
+  padding: 8px 16px;
+  cursor: pointer;
+  margin: 0 16px;
+}
+
+.menu ul li:hover {
+  background-color: var(--accent);
+  border-radius: 8px;
+}

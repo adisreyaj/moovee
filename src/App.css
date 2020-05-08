@@ -1,38 +1,39 @@
-.App {
-  text-align: center;
+/*
+ * File: App.css
+ * Project: moovee
+ * File Created: Thursday, 7th May 2020 9:48:43 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Friday, 8th May 2020 9:25:25 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+:root {
+  --primary: #120d31;
+  --secondary: #011627;
+  --accent: #8fb339;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button.primary {
+  background-color: var(--primary);
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button.link {
+  color: var(--primary);
+  background: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button.icon-primary {
+  background: none;
+  padding: 0;
+  outline: none;
 }
