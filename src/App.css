@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 8th May 2020 9:25:25 pm
+ * Last Modified: Saturday, 9th May 2020 12:34:54 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,6 +13,9 @@
   --primary: #120d31;
   --secondary: #011627;
   --accent: #8fb339;
+
+  /* Screen Sizes */
+  --mobile: 599px;
 }
 
 button {

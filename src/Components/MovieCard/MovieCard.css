@@ -4,21 +4,22 @@
  * File Created: Friday, 8th May 2020 9:02:02 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 8th May 2020 9:22:16 pm
+ * Last Modified: Saturday, 9th May 2020 12:46:51 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 .movie-card {
-  max-width: 180px;
   padding: 1rem;
+  max-width: 200px;
+  min-width: 180px;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0 3.3px 6.4px rgba(0, 0, 0, 0.016),
     0 10.9px 21.4px rgba(0, 0, 0, 0.024), 0 49px 96px rgba(0, 0, 0, 0.04);
 }
 .image {
-  width: 180px;
+  width: 100%;
 }
 
 .title {

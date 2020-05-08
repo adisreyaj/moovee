@@ -4,14 +4,14 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 8th May 2020 9:42:56 pm
+ * Last Modified: Saturday, 9th May 2020 12:05:15 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React, { useState } from 'react';
 
-import './Movie-Card.css';
+import './MovieCard.css';
 
 function MovieCard(props) {
   const initialState = false;

@@ -4,13 +4,15 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 8th May 2020 9:01:03 pm
+ * Last Modified: Saturday, 9th May 2020 12:46:30 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React from 'react';
-import MovieCard from '../Movie-Card/Movie-Card';
+import MovieCard from '../MovieCard/MovieCard';
+import './MovieContainer.css';
+
 function MovieContainer() {
   const data = {
     id: 481848,
@@ -34,7 +36,21 @@ function MovieContainer() {
   };
   return (
     <div className="movie-container">
-      <MovieCard data={data} />
+      <article className="movie-item">
+        <MovieCard data={data} />
+      </article>
+      <article className="movie-item">
+        <MovieCard data={data} />
+      </article>
+      <article className="movie-item">
+        <MovieCard data={data} />
+      </article>
+      <article className="movie-item">
+        <MovieCard data={data} />
+      </article>
+      <article className="movie-item">
+        <MovieCard data={data} />
+      </article>
     </div>
   );
 }

@@ -4,14 +4,14 @@
  * File Created: Friday, 8th May 2020 8:39:30 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 8th May 2020 9:15:28 pm
+ * Last Modified: Saturday, 9th May 2020 12:04:51 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React from 'react';
 
-import MovieContainer from '../../Components/Movie-Container/Movie-Container';
+import MovieContainer from '../../Components/MovieContainer/MovieContainer';
 import './Home.css';
 
 const Home = () => {
