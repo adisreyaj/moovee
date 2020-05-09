@@ -4,13 +4,14 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 9th May 2020 12:58:17 am
+ * Last Modified: Saturday, 9th May 2020 9:00:01 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React, { useState } from 'react';
 
+import { env } from '../../Config/AppConfig';
 import './MovieCard.css';
 
 function MovieCard(props) {
@@ -25,8 +26,11 @@ function MovieCard(props) {
   return (
     <div className="movie-card">
       <div className="movie-card-container">
-        <img className="image" src={poster_path} alt={title} />
-
+        <img
+          className="image"
+          src={`${env.imageUrl}${poster_path}`}
+          alt={title}
+        />
         <div className="content">
           <h4 className="title">{title}</h4>
           <p className="date">{release_date}</p>
