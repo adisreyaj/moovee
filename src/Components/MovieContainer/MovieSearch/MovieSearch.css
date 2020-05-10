@@ -1,0 +1,48 @@
+/*
+ * File: MovieSearch.css
+ * Project: moovee
+ * File Created: Sunday, 10th May 2020 4:21:30 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Sunday, 10th May 2020 5:03:18 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+.movie-search-field {
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.07);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid var(--primary);
+}
+
+.movie-search-field input {
+  border: none;
+  outline: none;
+  width: 100%;
+  line-height: 18px;
+}
+
+.movie-search-icon {
+  margin-right: 8px;
+}
+
+/* Search Empty Styles */
+.search-empty {
+  padding: 16px;
+  margin: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.search-empty figure {
+  margin-bottom: 24px;
+}
+.search-empty h1 {
+  margin-bottom: 16px;
+}
+.search-empty p {
+  color: var(--text-light);
+}

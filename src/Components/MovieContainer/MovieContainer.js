@@ -4,28 +4,49 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 9th May 2020 8:59:40 pm
+ * Last Modified: Sunday, 10th May 2020 4:59:25 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import React from 'react';
-import MovieCard from '../MovieCard/MovieCard';
+import React, { useState } from 'react';
+import MovieCard from './MovieCard/MovieCard';
+import { MovieSearch } from './MovieSearch/MovieSearch';
+import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 
 function MovieContainer() {
   const data = require('../../Assets/movies.json');
-  console.log({ data });
+  const [movies, setMovies] = useState(data);
+  const searchHandler = (event) => {
+    const searchTerm = event.target.value.toLowerCase();
+    setMovies(() => {
+      const filteredMovies = [...data].filter((movie) =>
+        movie.original_title.toLowerCase().includes(searchTerm)
+      );
+      return filteredMovies;
+    });
+  };
+
   return (
-    <div className="movie-container">
-      {data.map((movie) => {
-        return (
-          <article className="movie-item" key={movie.id}>
-            <MovieCard data={movie} />
-          </article>
-        );
-      })}
-    </div>
+    <main>
+      <section className="movie-search">
+        <MovieSearch changed={(event) => searchHandler(event)} />
+      </section>
+      <section className="movie-container">
+        {movies.length > 0 ? (
+          movies.map((movie) => {
+            return (
+              <article className="movie-item" key={movie.id}>
+                <MovieCard data={movie} />
+              </article>
+            );
+          })
+        ) : (
+          <SearchEmpty />
+        )}
+      </section>
+    </main>
   );
 }
 

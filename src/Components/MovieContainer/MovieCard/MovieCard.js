@@ -4,14 +4,14 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 9th May 2020 9:00:01 pm
+ * Last Modified: Sunday, 10th May 2020 4:13:27 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React, { useState } from 'react';
 
-import { env } from '../../Config/AppConfig';
+import { env } from '../../../Config/AppConfig';
 import './MovieCard.css';
 
 function MovieCard(props) {
