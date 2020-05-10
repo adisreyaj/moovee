@@ -4,7 +4,7 @@
  * File Created: Sunday, 10th May 2020 4:21:30 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 5:03:18 pm
+ * Last Modified: Sunday, 10th May 2020 5:24:07 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,7 +16,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 2px solid var(--primary);
+  background-color: #fff;
 }
 
 .movie-search-field input {

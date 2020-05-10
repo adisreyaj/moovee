@@ -4,19 +4,20 @@
  * File Created: Friday, 8th May 2020 8:19:10 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 9th May 2020 12:36:59 am
+ * Last Modified: Sunday, 10th May 2020 5:22:02 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 .header {
   margin: 0 auto;
   height: 80px;
-  background-color: var(--primary);
+  background-color: #fff;
+  box-shadow: 0px 9px 8px -9px rgba(0, 0, 0, 0.07);
 }
 
 .header-container {
   height: 80px;
-  color: #fff;
+  color: var(--primary);
   margin: 0 auto;
   width: 90%;
   display: flex;
@@ -25,8 +26,8 @@
   max-width: 1200px;
 }
 
-.brand {
-  font-weight: 700;
+.brand img {
+  height: 30px;
 }
 
 .menu ul {
@@ -39,11 +40,6 @@
   padding: 8px 16px;
   cursor: pointer;
   margin: 0 16px;
-}
-
-.menu ul li:hover {
-  background-color: var(--accent);
-  border-radius: 8px;
 }
 
 .mobile-menu-toggle {
