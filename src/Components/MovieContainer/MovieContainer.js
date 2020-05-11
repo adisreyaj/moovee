@@ -4,29 +4,44 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 4:59:25 pm
+ * Last Modified: Monday, 11th May 2020 9:59:15 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
+
+import { env } from '../../Config/AppConfig';
 import MovieCard from './MovieCard/MovieCard';
 import { MovieSearch } from './MovieSearch/MovieSearch';
 import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 
 function MovieContainer() {
-  const data = require('../../Assets/movies.json');
-  const [movies, setMovies] = useState(data);
+  const apiKey = process.env.REACT_APP_TMDB_API;
+  const trendingUrl = `${env.tmdbUrl}/trending/movie/week`;
+  const [movies, setMovies] = useState([]);
   const searchHandler = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     setMovies(() => {
-      const filteredMovies = [...data].filter((movie) =>
+      const filteredMovies = [...movies].filter((movie) =>
         movie.original_title.toLowerCase().includes(searchTerm)
       );
       return filteredMovies;
     });
   };
+
+  useEffect(() => {
+    Axios.get(trendingUrl, {
+      params: {
+        api_key: apiKey,
+      },
+    })
+      .then((res) => res.data.results)
+      .then((movies) => setMovies(movies));
+    return () => {};
+  }, []);
 
   return (
     <main>
