@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 11th May 2020 11:05:33 pm
+ * Last Modified: Monday, 11th May 2020 11:30:26 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -20,13 +20,14 @@ import './MovieContainer.css';
 
 function MovieContainer() {
   const [movies, setMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState(movies);
   const searchHandler = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     setMovies(() => {
-      const filteredMovies = [...movies].filter((movie) =>
+      const filtered = [...filteredMovies].filter((movie) =>
         movie.original_title.toLowerCase().includes(searchTerm)
       );
-      return filteredMovies;
+      return filtered;
     });
   };
 
@@ -39,7 +40,10 @@ function MovieContainer() {
       },
     })
       .then((res) => res.data.results)
-      .then((movies) => setMovies(movies));
+      .then((movies) => {
+        setMovies(movies);
+        setFilteredMovies(movies);
+      });
     return () => {};
   }, []);
 
