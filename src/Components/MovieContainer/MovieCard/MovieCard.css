@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 9:02:02 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 11th May 2020 10:02:36 pm
+ * Last Modified: Monday, 11th May 2020 11:07:26 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -15,8 +15,10 @@
 
 .movie-card-container {
   padding: 1rem;
-  max-width: 200px;
   min-width: 130px;
+  max-width: 200px;
+  width: 100%;
+  box-sizing: border-box;
   border-radius: 4px;
   background-color: #fff;
   box-shadow: 0 3.3px 6.4px rgba(0, 0, 0, 0.016),
@@ -28,10 +30,8 @@
 
 .title {
   margin-top: 0.5rem;
-  width: 200px;
+  max-height: 16px;
   font-size: 0.8rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   overflow: hidden;
 }
 

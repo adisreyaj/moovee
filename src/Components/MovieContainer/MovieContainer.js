@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 11th May 2020 9:59:15 pm
+ * Last Modified: Monday, 11th May 2020 11:05:33 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -19,8 +19,6 @@ import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 
 function MovieContainer() {
-  const apiKey = process.env.REACT_APP_TMDB_API;
-  const trendingUrl = `${env.tmdbUrl}/trending/movie/week`;
   const [movies, setMovies] = useState([]);
   const searchHandler = (event) => {
     const searchTerm = event.target.value.toLowerCase();
@@ -33,6 +31,8 @@ function MovieContainer() {
   };
 
   useEffect(() => {
+    const apiKey = process.env.REACT_APP_TMDB_API;
+    const trendingUrl = `${env.tmdbUrl}/trending/movie/week`;
     Axios.get(trendingUrl, {
       params: {
         api_key: apiKey,

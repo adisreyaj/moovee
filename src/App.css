@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 9:22:36 pm
+ * Last Modified: Monday, 11th May 2020 10:52:04 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -42,4 +42,10 @@ button.icon-primary {
   background: none;
   padding: 0;
   outline: none;
+}
+
+@media screen and (max-width: 599px) {
+  button {
+    font-size: 0.8rem;
+  }
 }
