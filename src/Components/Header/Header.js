@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:07:40 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 9:52:55 pm
+ * Last Modified: Monday, 11th May 2020 11:48:21 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,7 +12,7 @@
 import React, { useState } from 'react';
 import logo from '../../Assets/Images/moovee.svg';
 import github from '../../Assets/Images/github.svg';
-import './Header.css';
+import styles from './Header.module.css';
 const Header = () => {
   const [menuDisplay, setMenuDisplay] = useState(false);
   let menuClasses = ['menu'];
@@ -25,12 +25,17 @@ const Header = () => {
   };
 
   return (
-    <header className="header">
-      <div className="header-container">
-        <div className="brand">
+    <header className={styles.header}>
+      <div className={styles['header-container']}>
+        <div className={styles.brand}>
           <img src={logo} alt="Moovee" />
         </div>
-        <nav className={menuClasses.join(' ')}>
+        <nav
+          className={menuClasses.reduce(
+            (acc, curr) => `${acc} ${styles[curr]}`,
+            ''
+          )}
+        >
           <ul>
             <li>Home</li>
             <li>About</li>
@@ -46,7 +51,7 @@ const Header = () => {
           </ul>
         </nav>
         <button
-          className="icon-primary mobile-menu-toggle"
+          className={`icon-primary ${styles['mobile-menu-toggle']}`}
           onClick={() => toggleMenu(!menuDisplay)}
         >
           {menuDisplay ? (
