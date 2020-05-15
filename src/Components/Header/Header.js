@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:07:40 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 15th May 2020 11:42:36 pm
+ * Last Modified: Saturday, 16th May 2020 12:16:29 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,10 +16,16 @@ import styles from './Header.module.css';
 const Header = (props) => {
   const menuDisplay = props.enabled;
   let menuClasses = ['menu'];
-  if (menuDisplay) menuClasses.push('enabled');
+  let headerClasses = ['header'];
+  if (menuDisplay) menuClasses.push('enabled') && headerClasses.push('sticky');
 
   return (
-    <header className={styles.header}>
+    <header
+      className={headerClasses.reduce(
+        (acc, curr) => `${acc} ${styles[curr]}`,
+        ''
+      )}
+    >
       <div className={styles['header-container']}>
         <div className={styles.brand}>
           <img src={logo} alt="Moovee" />
