@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 15th May 2020 11:42:24 pm
+ * Last Modified: Friday, 15th May 2020 11:57:26 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -25,12 +25,7 @@ function App() {
   };
   return (
     <div className="App">
-      <Header
-        menuToggled={() => {
-          toggleMenu();
-        }}
-        enabled={menuDisplay}
-      />
+      <Header menuToggled={() => toggleMenu()} enabled={menuDisplay} />
       <Backdrop enabled={menuDisplay} />
       <Home />
     </div>
