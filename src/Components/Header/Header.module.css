@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:19:10 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 9:48:54 pm
+ * Last Modified: Friday, 15th May 2020 11:43:24 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -56,6 +56,7 @@
 @media screen and (max-width: 599px) {
   nav.menu {
     position: absolute;
+    z-index: 999;
     top: 104px;
     padding: 16px;
     border-radius: 8px;

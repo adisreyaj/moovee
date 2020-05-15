@@ -4,25 +4,19 @@
  * File Created: Friday, 8th May 2020 8:07:40 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 11th May 2020 11:48:21 pm
+ * Last Modified: Friday, 15th May 2020 11:42:36 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import logo from '../../Assets/Images/moovee.svg';
 import github from '../../Assets/Images/github.svg';
 import styles from './Header.module.css';
-const Header = () => {
-  const [menuDisplay, setMenuDisplay] = useState(false);
+const Header = (props) => {
+  const menuDisplay = props.enabled;
   let menuClasses = ['menu'];
   if (menuDisplay) menuClasses.push('enabled');
-
-  const toggleMenu = (e) => {
-    setMenuDisplay(() => {
-      return e;
-    });
-  };
 
   return (
     <header className={styles.header}>
@@ -52,7 +46,7 @@ const Header = () => {
         </nav>
         <button
           className={`icon-primary ${styles['mobile-menu-toggle']}`}
-          onClick={() => toggleMenu(!menuDisplay)}
+          onClick={() => props.menuToggled()}
         >
           {menuDisplay ? (
             <svg
