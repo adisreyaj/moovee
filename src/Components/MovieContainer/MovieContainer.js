@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 11th May 2020 11:30:26 pm
+ * Last Modified: Friday, 15th May 2020 9:50:53 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -19,8 +19,10 @@ import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 
 function MovieContainer() {
+  const [favorites, setFavorites] = useState([]);
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState(movies);
+
   const searchHandler = (event) => {
     const searchTerm = event.target.value.toLowerCase();
     setMovies(() => {
@@ -29,6 +31,19 @@ function MovieContainer() {
       );
       return filtered;
     });
+  };
+
+  const favoritesHandler = (movieId) => {
+    setFavorites((prevState, _) => {
+      const checkIfFavorite = prevState.find((item) => item === movieId);
+      if (checkIfFavorite)
+        return [...prevState].filter((item) => item !== movieId);
+      return [...prevState, movieId];
+    });
+  };
+
+  const checkIfFavorite = (movieId) => {
+    return favorites.find((item) => item === movieId);
   };
 
   useEffect(() => {
@@ -57,7 +72,11 @@ function MovieContainer() {
           movies.map((movie) => {
             return (
               <article className="movie-item" key={movie.id}>
-                <MovieCard data={movie} />
+                <MovieCard
+                  data={movie}
+                  favorite={checkIfFavorite(movie.id)}
+                  toggleFavorite={(movieId) => favoritesHandler(movieId)}
+                />
               </article>
             );
           })

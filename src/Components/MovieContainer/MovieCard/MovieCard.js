@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 4:13:27 pm
+ * Last Modified: Friday, 15th May 2020 9:49:38 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -15,14 +15,7 @@ import { env } from '../../../Config/AppConfig';
 import './MovieCard.css';
 
 function MovieCard(props) {
-  const initialState = false;
-  const [favorite, setFavorite] = useState(initialState);
-
-  const addToFavorites = () => {
-    setFavorite(!favorite);
-  };
-
-  const { title, release_date, vote_average, poster_path } = props.data;
+  const { id, title, release_date, vote_average, poster_path } = props.data;
   return (
     <div className="movie-card">
       <div className="movie-card-container">
@@ -53,15 +46,20 @@ function MovieCard(props) {
 
         <div className="footer">
           <button className="primary">Know More</button>
-          <button className="icon-primary" onClick={addToFavorites}>
+          <button
+            className="icon-primary"
+            onClick={() => {
+              props.toggleFavorite(id);
+            }}
+          >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
               <path
-                visibility={favorite ? 'hidden' : 'visible'}
+                visibility={props.favorite ? 'hidden' : 'visible'}
                 fill="rgba(237,1,94,1)"
                 d="M12 22l-9.192-9.192c-2.18-2.568-2.066-6.42.353-8.84A6.5 6.5 0 0112 3.64a6.5 6.5 0 019.179 9.154L12 22zm7.662-10.509a4.5 4.5 0 00-6.355-6.337L12 6.282l-1.307-1.128a4.5 4.5 0 00-6.355 6.337l.114.132L12 19.172l7.548-7.549.114-.132z"
               />
               <path
-                visibility={favorite ? 'visible' : 'hidden'}
+                visibility={props.favorite ? 'visible' : 'hidden'}
                 fill="rgba(237,1,94,1)"
                 d="M21.179 12.794l.013.014L12 22l-9.192-9.192.013-.014A6.5 6.5 0 0112 3.64a6.5 6.5 0 019.179 9.154z"
               />
