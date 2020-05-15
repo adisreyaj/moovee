@@ -4,12 +4,12 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 15th May 2020 9:49:38 pm
+ * Last Modified: Friday, 15th May 2020 9:52:11 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 
 import { env } from '../../../Config/AppConfig';
 import './MovieCard.css';
