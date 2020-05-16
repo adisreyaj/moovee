@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 7:14:07 pm
+ * Last Modified: Sunday, 17th May 2020 1:24:27 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -51,6 +51,8 @@ function MovieCard(props) {
           </Link>
           <button
             className="icon-primary"
+            role="button"
+            aria-label="Add favorite"
             onClick={() => {
               props.toggleFavorite(id);
             }}

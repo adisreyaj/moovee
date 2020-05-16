@@ -4,7 +4,7 @@
  * File Created: Sunday, 10th May 2020 12:29:51 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 5:03:48 pm
+ * Last Modified: Sunday, 17th May 2020 1:25:40 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -28,6 +28,7 @@ export const MovieSearch = (props) => {
       </figure>
       <input
         type="text"
+        aria-label="Search movies"
         placeholder="Search your fav movies"
         onChange={props.changed}
       />
