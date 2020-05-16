@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 11:17:38 pm
+ * Last Modified: Saturday, 16th May 2020 11:43:28 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -56,6 +56,57 @@ button.icon-primary {
   width: 90%;
   margin: 0 auto;
   max-width: 1200px;
+}
+
+/*-----------------------------------------
+ Custom Scrollbar Styles
+ -----------------------------------------*/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgb(192, 192, 192);
+  box-shadow: inset 0 0 5px rgb(192, 192, 192);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* width */
+::scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgb(192, 192, 192);
+  box-shadow: inset 0 0 5px rgb(192, 192, 192);
+  border-radius: 10px;
+}
+
+/* Handle */
+::scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::scrollbar-thumb:hover {
+  background: var(--primary);
 }
 
 @media screen and (max-width: 599px) {
