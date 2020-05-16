@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:24:27 am
+ * Last Modified: Sunday, 17th May 2020 1:44:49 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,15 +16,28 @@ import './MovieCard.css';
 import { Link } from 'react-router-dom';
 
 function MovieCard(props) {
+  const imageUrl = env.baseImageUrl;
   const { id, title, release_date, vote_average, poster_path } = props.data;
   return (
     <div className="movie-card">
       <div className="movie-card-container">
-        <img
-          className="image"
-          src={`${env.imageUrl}${poster_path}`}
-          alt={title}
-        />
+        <picture>
+          <source
+            className="image"
+            media="(max-width: 599px)"
+            srcSet={`${imageUrl}w154${poster_path}`}
+          />
+          <source
+            className="image"
+            media="(min-width: 600px)"
+            srcSet={`${imageUrl}w200${poster_path}`}
+          />
+          <img
+            className="image"
+            src={`${imageUrl}w200${poster_path}`}
+            alt={title}
+          />
+        </picture>
         <div className="content">
           <h4 className="title">{title}</h4>
           <p className="date">{release_date}</p>
@@ -51,7 +64,6 @@ function MovieCard(props) {
           </Link>
           <button
             className="icon-primary"
-            role="button"
             aria-label="Add favorite"
             onClick={() => {
               props.toggleFavorite(id);

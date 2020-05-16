@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 6:28:53 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:19:35 am
+ * Last Modified: Sunday, 17th May 2020 1:44:28 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -19,7 +19,6 @@ import MoviePosterWithVideo from './MoviePosterWithVideo/MoviePosterWithVideo';
 import MovieStats from './MovieStats/MovieStats';
 
 export default function MovieDetail(props) {
-  const apiKey = process.env.REACT_APP_TMDB_API;
   const baseImageUrl = env.baseImageUrl;
   const [movie, setMovie] = useState(undefined);
   const [trailer, setTrailer] = useState(undefined);
@@ -32,6 +31,7 @@ export default function MovieDetail(props) {
     return `${hours}h ${minutes}m`;
   };
   useEffect(() => {
+    const apiKey = process.env.REACT_APP_TMDB_API;
     http
       .get(`/movie/${movieId}`, {
         params: { api_key: apiKey },
@@ -76,7 +76,7 @@ export default function MovieDetail(props) {
             <h1>{movie.title}</h1>
             <MovieStats
               date={movie.release_date}
-              duration={movie.runtime}
+              duration={formatTime(movie.runtime)}
               imdbId={movie.imdb_id}
             />
             <p className={styles.movie__overview}>{movie.overview}</p>

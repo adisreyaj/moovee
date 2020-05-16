@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 10:58:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 11:09:18 pm
+ * Last Modified: Sunday, 17th May 2020 1:43:37 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -15,9 +15,9 @@ import http from '../../../Core/axios';
 import { Fragment } from 'react';
 
 export default function MovieKeywords({ movieId }) {
-  const apiKey = process.env.REACT_APP_TMDB_API;
   const [keywords, setKeywords] = useState(undefined);
   useEffect(() => {
+    const apiKey = process.env.REACT_APP_TMDB_API;
     http
       .get(`/movie/${movieId}/keywords`, {
         params: { api_key: apiKey },
