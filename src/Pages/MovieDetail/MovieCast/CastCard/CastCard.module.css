@@ -1,0 +1,59 @@
+/*
+ * File: CastCard.module.css
+ * Project: moovee
+ * File Created: Saturday, 16th May 2020 9:56:41 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Saturday, 16th May 2020 11:26:32 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+.cast {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 0 0 16.66%;
+}
+.cast__content {
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 3.1px 10px rgba(0, 0, 0, 0.015), 0 25px 80px rgba(0, 0, 0, 0.03);
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.cast__header img {
+  width: 140px;
+  object-fit: cover;
+  height: 200px;
+}
+
+.cast__name {
+  font-weight: 500;
+  margin: 4px 0;
+}
+
+.cast__character {
+  color: var(--text-light);
+  font-size: 0.8rem;
+}
+@media screen and (max-width: 1280px) {
+  .cast-item {
+    flex: 0 0 20%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .cast-item {
+    flex: 0 0 25%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .cast-item {
+    flex: 0 0 33.33%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .cast-item {
+    flex: 0 0 50%;
+  }
+}

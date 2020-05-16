@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 15th May 2020 11:57:26 pm
+ * Last Modified: Saturday, 16th May 2020 7:09:37 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -15,6 +15,9 @@ import './App.css';
 import Home from './Pages/Home/Home';
 import Header from './Components/Header/Header';
 import Backdrop from './Components/Backdrop/Backdrop';
+import { BrowserRouter, Route } from 'react-router-dom';
+import MovieDetail from './Pages/MovieDetail/MovieDetail';
+import About from './Pages/About/About';
 function App() {
   const [menuDisplay, setMenuDisplay] = useState(false);
 
@@ -24,11 +27,15 @@ function App() {
     });
   };
   return (
-    <div className="App">
-      <Header menuToggled={() => toggleMenu()} enabled={menuDisplay} />
-      <Backdrop enabled={menuDisplay} />
-      <Home />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Header menuToggled={() => toggleMenu()} enabled={menuDisplay} />
+        <Backdrop enabled={menuDisplay} />
+        <Route path="/" exact component={Home} />
+        <Route path="/details/:id" component={MovieDetail} />
+        <Route path="/about" component={About} />
+      </div>
+    </BrowserRouter>
   );
 }
 

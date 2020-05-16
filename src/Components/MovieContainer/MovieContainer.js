@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 15th May 2020 9:50:53 pm
+ * Last Modified: Saturday, 16th May 2020 6:39:32 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,7 +12,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
-import { env } from '../../Config/AppConfig';
 import MovieCard from './MovieCard/MovieCard';
 import { MovieSearch } from './MovieSearch/MovieSearch';
 import { SearchEmpty } from './MovieSearch/SearchEmpty';
@@ -48,7 +47,7 @@ function MovieContainer() {
 
   useEffect(() => {
     const apiKey = process.env.REACT_APP_TMDB_API;
-    const trendingUrl = `${env.tmdbUrl}/trending/movie/week`;
+    const trendingUrl = `trending/movie/week`;
     Axios.get(trendingUrl, {
       params: {
         api_key: apiKey,
@@ -66,6 +65,9 @@ function MovieContainer() {
     <main>
       <section className="movie-search">
         <MovieSearch changed={(event) => searchHandler(event)} />
+      </section>
+      <section>
+        <h2 className="heading">Top Movies</h2>
       </section>
       <section className="movie-container">
         {movies.length > 0 ? (
@@ -87,13 +89,5 @@ function MovieContainer() {
     </main>
   );
 }
-
-// async function getLatestMovies() {
-//   const movies = fetch({
-//     method: 'get',
-//     url: `https://api.themoviedb.org/3/movie/latest?api_key=${env.apiKey}`,
-//   });
-//   return await movies.then((data) => data.json());
-// }
 
 export default MovieContainer;

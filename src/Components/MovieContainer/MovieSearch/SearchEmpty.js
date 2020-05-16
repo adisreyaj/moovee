@@ -4,7 +4,7 @@
  * File Created: Sunday, 10th May 2020 4:57:05 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 10th May 2020 5:02:41 pm
+ * Last Modified: Saturday, 16th May 2020 12:56:00 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -27,7 +27,7 @@ export const SearchEmpty = () => {
       </figure>
       <h1>Uhoh! No Movie found</h1>
       <p>
-        We were not able to find the movie you were searching for. Try being
+        We were not able to find the movies you were searching for. Try being
         less specific ans see if it works.
       </p>
     </div>

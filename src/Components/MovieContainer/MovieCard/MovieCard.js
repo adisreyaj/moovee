@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Friday, 15th May 2020 9:52:11 pm
+ * Last Modified: Saturday, 16th May 2020 7:14:07 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,6 +13,7 @@ import React from 'react';
 
 import { env } from '../../../Config/AppConfig';
 import './MovieCard.css';
+import { Link } from 'react-router-dom';
 
 function MovieCard(props) {
   const { id, title, release_date, vote_average, poster_path } = props.data;
@@ -45,7 +46,9 @@ function MovieCard(props) {
         </div>
 
         <div className="footer">
-          <button className="primary">Know More</button>
+          <Link to={`/details/${id}`}>
+            <button className="primary">Know More</button>
+          </Link>
           <button
             className="icon-primary"
             onClick={() => {

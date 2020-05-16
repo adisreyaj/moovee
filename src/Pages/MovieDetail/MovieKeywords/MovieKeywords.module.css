@@ -1,0 +1,32 @@
+/*
+ * File: MovieKeywords.module.css
+ * Project: moovee
+ * File Created: Saturday, 16th May 2020 10:58:35 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Saturday, 16th May 2020 11:21:57 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+.keywords-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.keyword__item {
+  background: var(--secondary);
+  padding: 8px;
+  padding-left: 24px;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  position: relative;
+}
+
+.keyword__item::before {
+  content: '#';
+  position: absolute;
+  left: 10px;
+  color: var(--text-light);
+}

@@ -1,0 +1,19 @@
+/*
+ * File: MovieCast.module.css
+ * Project: moovee
+ * File Created: Saturday, 16th May 2020 9:16:28 pm
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Saturday, 16th May 2020 11:22:43 pm
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+.movie-cast-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  height: 300px;
+  overflow-x: scroll;
+  margin-bottom: 24px;
+}
