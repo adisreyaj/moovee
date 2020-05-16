@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 6:28:53 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 12:39:05 am
+ * Last Modified: Sunday, 17th May 2020 1:19:35 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,11 +12,11 @@
 import React, { useEffect, useState } from 'react';
 import http from '../../Core/axios';
 import { env } from '../../Config/AppConfig';
-import imdb from '../../Assets/Images/imdb.svg';
 import styles from './MovieDetail.module.css';
 import MovieCast from './MovieCast/MovieCast';
 import MovieKeywords from './MovieKeywords/MovieKeywords';
 import MoviePosterWithVideo from './MoviePosterWithVideo/MoviePosterWithVideo';
+import MovieStats from './MovieStats/MovieStats';
 
 export default function MovieDetail(props) {
   const apiKey = process.env.REACT_APP_TMDB_API;
@@ -52,8 +52,6 @@ export default function MovieDetail(props) {
         return video;
       })
       .then((data) => {
-        console.log({ data });
-
         setTrailer(() => data);
       });
   }, []);
@@ -76,17 +74,11 @@ export default function MovieDetail(props) {
           />
           <div className={styles.movie__meta}>
             <h1>{movie.title}</h1>
-            <div className={styles.movie__stats}>
-              <p>{movie.release_date.split('-')[0]}</p>
-              <p>{formatTime(movie.runtime)}</p>
-              <a
-                href={`http://imdb.com/title/${movie.imdb_id}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img src={imdb} alt="View on IMDB" height="25" />
-              </a>
-            </div>
+            <MovieStats
+              date={movie.release_date}
+              duration={movie.runtime}
+              imdbId={movie.imdb_id}
+            />
             <p className={styles.movie__overview}>{movie.overview}</p>
           </div>
         </div>
