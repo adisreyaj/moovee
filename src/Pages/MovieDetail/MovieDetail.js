@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 6:28:53 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 11:24:20 pm
+ * Last Modified: Sunday, 17th May 2020 12:39:05 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,11 +16,13 @@ import imdb from '../../Assets/Images/imdb.svg';
 import styles from './MovieDetail.module.css';
 import MovieCast from './MovieCast/MovieCast';
 import MovieKeywords from './MovieKeywords/MovieKeywords';
+import MoviePosterWithVideo from './MoviePosterWithVideo/MoviePosterWithVideo';
 
 export default function MovieDetail(props) {
   const apiKey = process.env.REACT_APP_TMDB_API;
   const baseImageUrl = env.baseImageUrl;
   const [movie, setMovie] = useState(undefined);
+  const [trailer, setTrailer] = useState(undefined);
   const { match } = props;
   const movieId = match.params.id;
 
@@ -38,6 +40,22 @@ export default function MovieDetail(props) {
       .then((data) => {
         setMovie(() => data);
       });
+
+    http
+      .get(`/movie/${movieId}/videos`, {
+        params: { api_key: apiKey },
+      })
+      .then((response) => response.data.results)
+      .then((videos) => {
+        let video = videos.find((item) => item.type === 'Trailer');
+        if (!video) video = videos.find((item) => item.type === 'Teaser');
+        return video;
+      })
+      .then((data) => {
+        console.log({ data });
+
+        setTrailer(() => data);
+      });
   }, []);
   return movie ? (
     <div>
@@ -51,12 +69,11 @@ export default function MovieDetail(props) {
           <div className={styles.movie__overlay}></div>
         </div>
         <div className={styles.movie__content}>
-          <div className={styles.movie__poster}>
-            <img
-              src={`${baseImageUrl}w300${movie.poster_path}`}
-              alt={movie.title}
-            />
-          </div>
+          <MoviePosterWithVideo
+            poster={movie.poster_path}
+            title={movie.title}
+            trailer={trailer ? trailer : undefined}
+          />
           <div className={styles.movie__meta}>
             <h1>{movie.title}</h1>
             <div className={styles.movie__stats}>

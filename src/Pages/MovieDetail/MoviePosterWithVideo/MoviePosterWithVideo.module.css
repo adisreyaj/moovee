@@ -1,0 +1,41 @@
+/*
+ * File: MoviePosterWithVideo.module.css
+ * Project: moovee
+ * File Created: Sunday, 17th May 2020 12:11:30 am
+ * Author: Adithya Sreyaj
+ * -----
+ * Last Modified: Sunday, 17th May 2020 1:08:37 am
+ * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
+ * -----
+ */
+
+.movie__poster {
+  z-index: 3;
+  position: relative;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.poster__image {
+  width: 200px;
+  height: 300px;
+  object-fit: fill;
+}
+
+.movie__trailer {
+  cursor: pointer;
+  width: 200px;
+  position: absolute;
+  height: 300px;
+  background-color: #00000050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in 0.2s;
+}
+
+.movie__trailer:hover {
+  background-color: #00000080;
+}
