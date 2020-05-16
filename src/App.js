@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 7:09:37 pm
+ * Last Modified: Saturday, 16th May 2020 11:51:50 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -18,6 +18,7 @@ import Backdrop from './Components/Backdrop/Backdrop';
 import { BrowserRouter, Route } from 'react-router-dom';
 import MovieDetail from './Pages/MovieDetail/MovieDetail';
 import About from './Pages/About/About';
+import Footer from './Components/Footer/Footer';
 function App() {
   const [menuDisplay, setMenuDisplay] = useState(false);
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/details/:id" component={MovieDetail} />
         <Route path="/about" component={About} />
+        <Footer />
       </div>
     </BrowserRouter>
   );
