@@ -1,68 +1,87 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">MOOVEE - Curate your favorite movies!</h1>
+<p align="center">
+  <a href="https://github.com/adisreyaj/moovee/blob/master/LICENSE.md">
+    <img alt="License: MIT License" src="https://img.shields.io/badge/license-MIT License-yellow.svg" target="_blank" />
+  </a>
+    <img src="https://img.shields.io/badge/React-v16-blue" alt="angular">
+  </a>
+  <a href="https://twitter.com/AdiSreyaj">
+    <img alt="Twitter: Adithya Sreyaj" src="https://img.shields.io/twitter/follow/AdiSreyaj.svg?style=social" target="_blank" />
+  </a>
+</p>
 
-## Available Scripts
+> Curate your favorite movies and series online using MOOVEE. With awesome movie recommendations based on your taste, you will never have to search through lists of movies.
 
-In the project directory, you can run:
+### Home Screen
 
-### `npm start`
+![Moovee Home](./moovee-home.png 'MOOVEE Home screen')
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Details Screen
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Moovee Home](./moovee-detail.png 'MOOVEE Home screen')
 
-### `npm test`
+## 🔥 Features
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Powered by React
+- Powered by TMDB Apis
+- Routing using React-router
+- Lazy loading using React Suspense
+- Shimmer animation while loading
+- PWA
+- Mobile optimized
 
-### `npm run build`
+## 🚀 Usage
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Make sure you have the pre-requisites installed on your system. You can start by cloning/downloading the repo to your local system.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Install the dependencies of the applications
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install
+```
 
-### `npm run eject`
+2. Configure the options in `.env` file
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Start the application using the command
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🛠 Environment Configuration
 
-## Learn More
+The application is powered by TMDB Apis. You need to signup for an account to obtain the API Key.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`TMDB API reference` - https://www.themoviedb.org/documentation/api
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+REACT_APP_TMDB_API=<your_api_key_here>
+```
 
-### Code Splitting
+<br>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<hr>
 
-### Analyzing the Bundle Size
+## 🤝 Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Contributions, issues and feature requests are welcome.<br />
+Feel free to check [issues page](https://github.com/adisreyaj/moovee/issues) if you want to contribute.
 
-### Making a Progressive Web App
+## Author
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+👤 **Adithya Sreyaj**
 
-### Advanced Configuration
+- Twitter: [@AdiSreyaj](https://twitter.com/AdiSreyaj)
+- Github: [@adisreyaj](https://github.com/adisreyaj)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## 👍🏼 Show your support
 
-### Deployment
+Please ⭐️ this repository if this project helped you!
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+## 📝 License
 
-### `npm run build` fails to minify
+Copyright © 2020 [Adithya Sreyaj](https://github.com/adisreyaj).<br />
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is [MIT License](https://github.com/adisreyaj/moovee/blob/master/LICENSE.md) licensed.
