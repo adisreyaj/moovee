@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:44:49 am
+ * Last Modified: Sunday, 17th May 2020 12:30:00 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,36 +12,36 @@
 import React from 'react';
 
 import { env } from '../../../Config/AppConfig';
-import './MovieCard.css';
+import styles from './MovieCard.module.css';
 import { Link } from 'react-router-dom';
 
-function MovieCard(props) {
+const MovieCard = (props) => {
   const imageUrl = env.baseImageUrl;
   const { id, title, release_date, vote_average, poster_path } = props.data;
   return (
-    <div className="movie-card">
-      <div className="movie-card-container">
+    <div className={styles['movie-card']}>
+      <div className={styles['movie-card-container']}>
         <picture>
           <source
-            className="image"
+            className={styles.image}
             media="(max-width: 599px)"
             srcSet={`${imageUrl}w154${poster_path}`}
           />
           <source
-            className="image"
+            className={styles.image}
             media="(min-width: 600px)"
             srcSet={`${imageUrl}w200${poster_path}`}
           />
           <img
-            className="image"
+            className={styles.image}
             src={`${imageUrl}w200${poster_path}`}
             alt={title}
           />
         </picture>
-        <div className="content">
-          <h4 className="title">{title}</h4>
-          <p className="date">{release_date}</p>
-          <div className="rating">
+        <div className={styles.content}>
+          <h4 className={styles.title}>{title}</h4>
+          <p className={styles.date}>{release_date}</p>
+          <div className={styles.rating}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -58,7 +58,7 @@ function MovieCard(props) {
           </div>
         </div>
 
-        <div className="footer">
+        <div className={styles.footer}>
           <Link to={`/details/${id}`}>
             <button className="primary">Know More</button>
           </Link>
@@ -86,6 +86,25 @@ function MovieCard(props) {
       </div>
     </div>
   );
-}
+};
 
-export default MovieCard;
+const MovieCardSkeleton = () => {
+  return (
+    <div className={styles['movie-card']}>
+      <div className={styles['movie-card-container']}>
+        <div className={[styles['picture-loading'], 'shimmer'].join(' ')}></div>
+        <div className={[styles['info-loading'], 'shimmer'].join(' ')}></div>
+        <div className={styles['controls-loading']}>
+          <div
+            className={[styles['button-loading'], 'shimmer'].join(' ')}
+          ></div>
+          <div
+            className={[styles['favorites-loading'], 'shimmer'].join(' ')}
+          ></div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export { MovieCard, MovieCardSkeleton };

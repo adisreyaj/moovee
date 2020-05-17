@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 6:39:32 pm
+ * Last Modified: Sunday, 17th May 2020 12:32:17 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,14 +12,15 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 
-import MovieCard from './MovieCard/MovieCard';
+import { MovieCard, MovieCardSkeleton } from './MovieCard/MovieCard';
 import { MovieSearch } from './MovieSearch/MovieSearch';
 import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 
 function MovieContainer() {
+  const [loading, setLoading] = useState(true);
   const [favorites, setFavorites] = useState([]);
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(undefined);
   const [filteredMovies, setFilteredMovies] = useState(movies);
 
   const searchHandler = (event) => {
@@ -45,21 +46,53 @@ function MovieContainer() {
     return favorites.find((item) => item === movieId);
   };
 
+  const getMovieItems = (moviesList) => {
+    return !loading && moviesList && moviesList.length > 0 ? (
+      moviesList.map((movie) => {
+        return (
+          <article className="movie-item" key={movie.id}>
+            <MovieCard
+              data={movie}
+              favorite={checkIfFavorite(movie.id)}
+              toggleFavorite={(movieId) => favoritesHandler(movieId)}
+            />
+          </article>
+        );
+      })
+    ) : (
+      <SearchEmpty />
+    );
+  };
+
+  const getLoadingCards = () => {
+    return Array(10)
+      .fill('something')
+      .map((_, i) => {
+        return (
+          <article className="movie-item" key={i}>
+            <MovieCardSkeleton />
+          </article>
+        );
+      });
+  };
   useEffect(() => {
     const apiKey = process.env.REACT_APP_TMDB_API;
     const trendingUrl = `trending/movie/week`;
-    Axios.get(trendingUrl, {
-      params: {
-        api_key: apiKey,
-      },
-    })
-      .then((res) => res.data.results)
-      .then((movies) => {
-        setMovies(movies);
-        setFilteredMovies(movies);
-      });
-    return () => {};
-  }, []);
+    if (!movies) {
+      Axios.get(trendingUrl, {
+        params: {
+          api_key: apiKey,
+        },
+      })
+        .then((res) => res.data.results)
+        .then((movies) => {
+          setMovies(movies);
+          setFilteredMovies(movies);
+          setLoading(false);
+        })
+        .catch(() => setLoading(false));
+    }
+  });
 
   return (
     <main>
@@ -70,21 +103,7 @@ function MovieContainer() {
         <h2 className="heading">Top Movies</h2>
       </section>
       <section className="movie-container">
-        {movies.length > 0 ? (
-          movies.map((movie) => {
-            return (
-              <article className="movie-item" key={movie.id}>
-                <MovieCard
-                  data={movie}
-                  favorite={checkIfFavorite(movie.id)}
-                  toggleFavorite={(movieId) => favoritesHandler(movieId)}
-                />
-              </article>
-            );
-          })
-        ) : (
-          <SearchEmpty />
-        )}
+        {loading ? getLoadingCards() : getMovieItems(movies)}
       </section>
     </main>
   );

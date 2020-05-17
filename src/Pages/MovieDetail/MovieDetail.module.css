@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 6:38:15 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:19:52 am
+ * Last Modified: Sunday, 17th May 2020 10:54:41 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -34,6 +34,11 @@
   margin-left: 2rem;
 }
 
+.movie__tagline {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
 .movie__overview {
   line-height: 1.8;
 }

@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 9:19:35 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 11:57:20 pm
+ * Last Modified: Sunday, 17th May 2020 10:23:58 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -31,12 +31,12 @@ export default function CastCard({ data }) {
         </section>
         <section className={styles.cast__body}>
           <p className={styles.cast__name}>
-            {data.name.slice(0, 15)}
-            {data.name.length > 15 ? '...' : ''}
+            {data.name.slice(0, 12)}
+            {data.name.length > 12 ? '...' : ''}
           </p>
           <p className={styles.cast__character}>
-            {data.character.slice(0, 15)}
-            {data.name.length > 15 ? '...' : ''}
+            {data.character.slice(0, 12)}
+            {data.name.length > 12 ? '...' : ''}
           </p>
         </section>
         <section className={styles.cast__footer}></section>

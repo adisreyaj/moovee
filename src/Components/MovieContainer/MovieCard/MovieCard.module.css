@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 9:02:02 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 11th May 2020 11:25:25 pm
+ * Last Modified: Sunday, 17th May 2020 12:28:26 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -58,6 +58,41 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Skeleton Styles */
+
+.picture-loading {
+  width: 100%;
+  height: 250px;
+  border-radius: 4px;
+}
+
+.info-loading {
+  width: 100%;
+  margin-top: 12px;
+  height: 24px;
+  border-radius: 4px;
+}
+.controls-loading {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  border-radius: 4px;
+}
+
+.button-loading {
+  width: 80px;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.favorites-loading {
+  width: 30px;
+  height: 100%;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 599px) {

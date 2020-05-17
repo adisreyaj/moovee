@@ -4,7 +4,7 @@
  * File Created: Sunday, 17th May 2020 1:16:01 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:20:31 am
+ * Last Modified: Sunday, 17th May 2020 10:50:32 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,9 +13,24 @@ import React from 'react';
 import imdb from '../../../Assets/Images/imdb.svg';
 import styles from './MovieStats.module.css';
 
-export default function MovieStats({ date, duration, imdbId }) {
+export default function MovieStats({ date, duration, rating, imdbId }) {
   return (
     <div className={styles.movie__stats}>
+      <div className={styles['movie__stats-item']}>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          width="16"
+          height="16"
+        >
+          <path fill="none" d="M0 0h24v24H0z" />
+          <path
+            d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"
+            fill="rgba(34,195,101,1)"
+          />
+        </svg>
+        <p>{rating}</p>
+      </div>
       <div className={styles['movie__stats-item']}>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
           <path fill="none" d="M0 0h24v24H0z" />

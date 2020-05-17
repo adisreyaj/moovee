@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 6:28:53 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:44:28 am
+ * Last Modified: Sunday, 17th May 2020 12:15:21 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -17,13 +17,20 @@ import MovieCast from './MovieCast/MovieCast';
 import MovieKeywords from './MovieKeywords/MovieKeywords';
 import MoviePosterWithVideo from './MoviePosterWithVideo/MoviePosterWithVideo';
 import MovieStats from './MovieStats/MovieStats';
+import { useWindowSize } from 'react-use';
 
 export default function MovieDetail(props) {
   const baseImageUrl = env.baseImageUrl;
   const [movie, setMovie] = useState(undefined);
   const [trailer, setTrailer] = useState(undefined);
+  const { width } = useWindowSize();
   const { match } = props;
   const movieId = match.params.id;
+
+  const headerImageDimension = () => {
+    if (width > 600) return 'w1280';
+    return 'w780';
+  };
 
   const formatTime = (runtime) => {
     const hours = Math.floor(runtime / 60);
@@ -32,28 +39,30 @@ export default function MovieDetail(props) {
   };
   useEffect(() => {
     const apiKey = process.env.REACT_APP_TMDB_API;
-    http
-      .get(`/movie/${movieId}`, {
-        params: { api_key: apiKey },
-      })
-      .then((response) => response.data)
-      .then((data) => {
-        setMovie(() => data);
-      });
+    if (!movie) {
+      http
+        .get(`/movie/${movieId}`, {
+          params: { api_key: apiKey },
+        })
+        .then((response) => response.data)
+        .then((data) => {
+          setMovie(() => data);
+        });
 
-    http
-      .get(`/movie/${movieId}/videos`, {
-        params: { api_key: apiKey },
-      })
-      .then((response) => response.data.results)
-      .then((videos) => {
-        let video = videos.find((item) => item.type === 'Trailer');
-        if (!video) video = videos.find((item) => item.type === 'Teaser');
-        return video;
-      })
-      .then((data) => {
-        setTrailer(() => data);
-      });
+      http
+        .get(`/movie/${movieId}/videos`, {
+          params: { api_key: apiKey },
+        })
+        .then((response) => response.data.results)
+        .then((videos) => {
+          let video = videos.find((item) => item.type === 'Trailer');
+          if (!video) video = videos.find((item) => item.type === 'Teaser');
+          return video;
+        })
+        .then((data) => {
+          setTrailer(() => data);
+        });
+    }
   }, []);
   return movie ? (
     <div>
@@ -61,7 +70,9 @@ export default function MovieDetail(props) {
         <div
           className={styles.movie__backdrop}
           style={{
-            backgroundImage: `url('${baseImageUrl}w1280${movie.backdrop_path}')`,
+            backgroundImage: `url('${baseImageUrl}${headerImageDimension()}${
+              movie.backdrop_path
+            }')`,
           }}
         >
           <div className={styles.movie__overlay}></div>
@@ -74,9 +85,11 @@ export default function MovieDetail(props) {
           />
           <div className={styles.movie__meta}>
             <h1>{movie.title}</h1>
+            <p className={styles.movie__tagline}>{movie.tagline}</p>
             <MovieStats
               date={movie.release_date}
               duration={formatTime(movie.runtime)}
+              rating={movie.vote_average}
               imdbId={movie.imdb_id}
             />
             <p className={styles.movie__overview}>{movie.overview}</p>

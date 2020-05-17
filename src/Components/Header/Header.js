@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:07:40 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 7:07:08 pm
+ * Last Modified: Sunday, 17th May 2020 10:55:30 am
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -13,7 +13,7 @@ import React from 'react';
 import logo from '../../Assets/Images/moovee.svg';
 import github from '../../Assets/Images/github.svg';
 import styles from './Header.module.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 const Header = (props) => {
   const menuDisplay = props.enabled;
   let menuClasses = ['menu'];
@@ -29,7 +29,9 @@ const Header = (props) => {
     >
       <div className={styles['header-container']}>
         <div className={styles.brand}>
-          <img src={logo} alt="Moovee" />
+          <Link to="/">
+            <img src={logo} alt="Moovee" />
+          </Link>
         </div>
         <nav
           className={menuClasses.reduce(
