@@ -4,7 +4,7 @@
  * File Created: Friday, 15th May 2020 11:30:54 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 12:09:57 am
+ * Last Modified: Sunday, 17th May 2020 1:50:39 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,8 +12,27 @@
 .backdrop {
   position: fixed;
   top: -80px;
-  z-index: 2;
+  opacity: 0;
   width: 100%;
+  visibility: hidden;
   height: calc(100% + 80px);
-  background-color: #00000080;
+  transition: all ease-in 0.3s;
+  background-color: #000000cc;
+}
+
+.backdrop.active {
+  animation: backdropAnimation 0.3s ease-in forwards;
+}
+
+@keyframes backdropAnimation {
+  0% {
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
 }
