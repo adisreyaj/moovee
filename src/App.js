@@ -4,48 +4,26 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 4:54:07 pm
+ * Last Modified: Monday, 18th May 2020 11:43:51 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
-import React, { useState, lazy, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import Home from './Pages/Home/Home';
-import Header from './Components/Header/Header';
-import Backdrop from './Components/Backdrop/Backdrop';
-import About from './Pages/About/About';
-import Footer from './Components/Footer/Footer';
 
-const MovieDetail = lazy(() => import('./Pages/MovieDetail/MovieDetail'));
+import Login from './Pages/Login/Login';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
-  const [menuDisplay, setMenuDisplay] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuDisplay((prevState, _) => {
-      return !prevState;
-    });
-  };
   return (
     <BrowserRouter>
-      <div className="App">
-        <Header menuToggled={() => toggleMenu()} enabled={menuDisplay} />
-        <Backdrop enabled={menuDisplay} />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Suspense fallback={<p>Loading..</p>}>
-            <Route
-              path="/details/:id"
-              render={(props) => <MovieDetail {...props} />}
-            />
-          </Suspense>
-          <Route path="/about" component={About} />
-        </Switch>
-        <Footer />
-      </div>
+      <Switch>
+        <Route path="/login" exact component={Login} />
+        <Route path="/" component={Dashboard} />
+      </Switch>
     </BrowserRouter>
   );
 }
