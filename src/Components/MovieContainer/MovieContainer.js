@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 12:32:17 pm
+ * Last Modified: Tuesday, 19th May 2020 11:46:33 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -16,10 +16,10 @@ import { MovieCard, MovieCardSkeleton } from './MovieCard/MovieCard';
 import { MovieSearch } from './MovieSearch/MovieSearch';
 import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
+import { connect } from 'react-redux';
 
-function MovieContainer() {
+function MovieContainer({ favorites, onAddFavorite, onRemoveFavorite }) {
   const [loading, setLoading] = useState(true);
-  const [favorites, setFavorites] = useState([]);
   const [movies, setMovies] = useState(undefined);
   const [filteredMovies, setFilteredMovies] = useState(movies);
 
@@ -34,12 +34,9 @@ function MovieContainer() {
   };
 
   const favoritesHandler = (movieId) => {
-    setFavorites((prevState, _) => {
-      const checkIfFavorite = prevState.find((item) => item === movieId);
-      if (checkIfFavorite)
-        return [...prevState].filter((item) => item !== movieId);
-      return [...prevState, movieId];
-    });
+    checkIfFavorite(movieId)
+      ? onRemoveFavorite(movieId)
+      : onAddFavorite(movieId);
   };
 
   const checkIfFavorite = (movieId) => {
@@ -109,4 +106,18 @@ function MovieContainer() {
   );
 }
 
-export default MovieContainer;
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.favorites,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onAddFavorite: (movieId) =>
+      dispatch({ type: 'ADD_FAVORITE', value: movieId }),
+    onRemoveFavorite: (movieId) =>
+      dispatch({ type: 'REMOVE_FAVORITE', value: movieId }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieContainer);
