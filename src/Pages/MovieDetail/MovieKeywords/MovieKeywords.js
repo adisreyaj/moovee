@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 10:58:27 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 1:43:37 am
+ * Last Modified: Tuesday, 19th May 2020 10:13:33 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -26,7 +26,7 @@ export default function MovieKeywords({ movieId }) {
       .then((data) => {
         setKeywords(() => data.keywords);
       });
-  }, []);
+  }, [movieId]);
   return keywords ? (
     <Fragment>
       <h3 className="section-heading">Keywords</h3>

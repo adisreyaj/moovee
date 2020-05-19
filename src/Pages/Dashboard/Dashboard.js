@@ -4,13 +4,13 @@
  * File Created: Monday, 18th May 2020 11:19:25 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Monday, 18th May 2020 11:43:07 pm
+ * Last Modified: Tuesday, 19th May 2020 10:11:03 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React, { useState, lazy, Suspense } from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Home from '../Home/Home';
 import About from '../About/About';

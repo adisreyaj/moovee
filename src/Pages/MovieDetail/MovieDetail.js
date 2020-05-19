@@ -4,7 +4,7 @@
  * File Created: Saturday, 16th May 2020 6:28:53 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 12:15:21 pm
+ * Last Modified: Tuesday, 19th May 2020 10:14:54 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -63,7 +63,7 @@ export default function MovieDetail(props) {
           setTrailer(() => data);
         });
     }
-  }, []);
+  }, [movieId]);
   return movie ? (
     <div>
       <section className={styles.movie__header}>
