@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Tuesday, 19th May 2020 11:46:33 pm
+ * Last Modified: Wednesday, 20th May 2020 9:37:12 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -17,6 +17,7 @@ import { MovieSearch } from './MovieSearch/MovieSearch';
 import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 import { connect } from 'react-redux';
+import { ADD_FAVORITE, REMOVE_FAVORITE } from '../../Store/actions';
 
 function MovieContainer({ favorites, onAddFavorite, onRemoveFavorite }) {
   const [loading, setLoading] = useState(true);
@@ -114,9 +115,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onAddFavorite: (movieId) =>
-      dispatch({ type: 'ADD_FAVORITE', value: movieId }),
+      dispatch({ type: ADD_FAVORITE, value: movieId }),
     onRemoveFavorite: (movieId) =>
-      dispatch({ type: 'REMOVE_FAVORITE', value: movieId }),
+      dispatch({ type: REMOVE_FAVORITE, value: movieId }),
   };
 };
 
