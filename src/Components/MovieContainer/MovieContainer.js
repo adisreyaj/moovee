@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 20th May 2020 9:37:12 pm
+ * Last Modified: Wednesday, 20th May 2020 10:55:47 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -17,12 +17,52 @@ import { MovieSearch } from './MovieSearch/MovieSearch';
 import { SearchEmpty } from './MovieSearch/SearchEmpty';
 import './MovieContainer.css';
 import { connect } from 'react-redux';
-import { ADD_FAVORITE, REMOVE_FAVORITE } from '../../Store/actions';
+import { ADD_FAVORITE, REMOVE_FAVORITE, ADD_MOVIES } from '../../Store/actions';
 
-function MovieContainer({ favorites, onAddFavorite, onRemoveFavorite }) {
+function MovieContainer({
+  favorites,
+  movies: storedMovies,
+  onAddFavorite,
+  onRemoveFavorite,
+  onSetMovies,
+}) {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState(undefined);
   const [filteredMovies, setFilteredMovies] = useState(movies);
+
+  console.log(
+    `%cStored:${storedMovies}`,
+    'background-color: green, color: #000'
+  );
+
+  useEffect(() => {
+    const apiKey = process.env.REACT_APP_TMDB_API;
+    const trendingUrl = `trending/movie/week`;
+    /**
+     * Check if the movies are saved to the store.
+     * If Yes, use the movies data from the store
+     * If No, make the api call to get the movies
+     */
+    if (!storedMovies || storedMovies.length === 0) {
+      Axios.get(trendingUrl, {
+        params: {
+          api_key: apiKey,
+        },
+      })
+        .then((res) => res.data.results)
+        .then((movies) => {
+          setMovies(movies);
+          setFilteredMovies(movies);
+          setLoading(false);
+          onSetMovies(movies);
+        })
+        .catch(() => setLoading(false));
+    } else {
+      setLoading(false);
+      setMovies(storedMovies);
+      setFilteredMovies(storedMovies);
+    }
+  }, [storedMovies]);
 
   const searchHandler = (event) => {
     const searchTerm = event.target.value.toLowerCase();
@@ -73,24 +113,6 @@ function MovieContainer({ favorites, onAddFavorite, onRemoveFavorite }) {
         );
       });
   };
-  useEffect(() => {
-    const apiKey = process.env.REACT_APP_TMDB_API;
-    const trendingUrl = `trending/movie/week`;
-    if (!movies) {
-      Axios.get(trendingUrl, {
-        params: {
-          api_key: apiKey,
-        },
-      })
-        .then((res) => res.data.results)
-        .then((movies) => {
-          setMovies(movies);
-          setFilteredMovies(movies);
-          setLoading(false);
-        })
-        .catch(() => setLoading(false));
-    }
-  });
 
   return (
     <main>
@@ -109,7 +131,8 @@ function MovieContainer({ favorites, onAddFavorite, onRemoveFavorite }) {
 
 const mapStateToProps = (state) => {
   return {
-    favorites: state.favorites,
+    favorites: state.fav.favorites,
+    movies: state.movies.movies,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -118,6 +141,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch({ type: ADD_FAVORITE, value: movieId }),
     onRemoveFavorite: (movieId) =>
       dispatch({ type: REMOVE_FAVORITE, value: movieId }),
+    onSetMovies: (movies) => dispatch({ type: ADD_MOVIES, payload: movies }),
   };
 };
 
