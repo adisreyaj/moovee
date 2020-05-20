@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:37:19 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 12:30:00 pm
+ * Last Modified: Wednesday, 20th May 2020 11:40:06 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -59,8 +59,8 @@ const MovieCard = (props) => {
         </div>
 
         <div className={styles.footer}>
-          <Link to={`/details/${id}`}>
-            <button className="primary">Know More</button>
+          <Link to={`/details/${id}`} className="btn btn-primary">
+            <span className="primary">Know More</span>
           </Link>
           <button
             className="icon-primary"
