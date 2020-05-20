@@ -4,16 +4,16 @@
  * File Created: Sunday, 10th May 2020 4:57:05 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Saturday, 16th May 2020 12:56:00 pm
+ * Last Modified: Wednesday, 20th May 2020 11:55:15 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
 
 import React from 'react';
-import './MovieSearch.css';
+import styles from './MovieSearch.module.css';
 export const SearchEmpty = () => {
   return (
-    <div className="search-empty">
+    <div className={styles['search-empty']}>
       <figure>
         <svg
           xmlns="http://www.w3.org/2000/svg"

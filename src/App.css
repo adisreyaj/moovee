@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Sunday, 17th May 2020 12:30:53 pm
+ * Last Modified: Wednesday, 20th May 2020 11:41:09 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -21,16 +21,32 @@
   --mobile: 599px;
 }
 
-button {
+button,
+.btn {
   border: none;
   padding: 8px 16px;
   cursor: pointer;
+  display: flex;
   border-radius: 4px;
 }
 
-button.primary {
+a.btn {
+  font-size: 0.8rem;
+}
+a.btn-primary {
+  text-decoration: none;
+}
+
+button.primary,
+.btn-primary {
   background-color: var(--primary);
   color: #fff;
+}
+
+button.primary:focus,
+a.btn-primary:focus {
+  border: 2px solid white;
+  box-shadow: 0px 0px 0px 2px var(--primary);
 }
 
 button.link {
