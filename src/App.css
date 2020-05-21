@@ -4,7 +4,7 @@
  * File Created: Thursday, 7th May 2020 9:48:43 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 20th May 2020 11:41:09 pm
+ * Last Modified: Thursday, 21st May 2020 10:09:29 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -12,7 +12,7 @@
 :root {
   --primary: #120d31;
   --secondary: #011627;
-  --accent: #8fb339;
+  --accent: #659000;
 
   /* Text Colors */
   --text-light: #696969;
@@ -27,6 +27,7 @@ button,
   padding: 8px 16px;
   cursor: pointer;
   display: flex;
+  font-size: 1rem;
   border-radius: 4px;
 }
 
@@ -41,12 +42,6 @@ button.primary,
 .btn-primary {
   background-color: var(--primary);
   color: #fff;
-}
-
-button.primary:focus,
-a.btn-primary:focus {
-  border: 2px solid white;
-  box-shadow: 0px 0px 0px 2px var(--primary);
 }
 
 button.link {
@@ -159,6 +154,6 @@ button.icon-primary {
 
 @media screen and (max-width: 599px) {
   button {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }

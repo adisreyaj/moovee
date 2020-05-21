@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Wednesday, 20th May 2020 11:45:55 pm
+ * Last Modified: Thursday, 21st May 2020 10:18:27 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -107,6 +107,21 @@ function MovieContainer({
     return favorites.find((item) => item === movieId);
   };
 
+  const filterHandler = (selectedGenres) => {
+    console.log(selectedGenres);
+
+    setMovies(() => {
+      const filtered = [...filteredMovies].filter((movie) => {
+        const movieGenres = new Set(movie.genre_ids);
+        const genreMatches = selectedGenres.map((genreId) => {
+          return movieGenres.has(genreId);
+        });
+        return genreMatches.some((item) => item);
+      });
+      return filtered;
+    });
+  };
+
   const getMovieItems = (moviesList) => {
     return !loading && moviesList && moviesList.length > 0 ? (
       moviesList.map((movie) => {
@@ -143,6 +158,7 @@ function MovieContainer({
         <MovieSearch
           changed={(event) => searchHandler(event)}
           genres={genres}
+          filtered={(selectedGenres) => filterHandler(selectedGenres)}
         />
       </section>
       <section>
