@@ -4,7 +4,7 @@
  * File Created: Friday, 8th May 2020 8:39:09 pm
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 21st May 2020 10:18:27 pm
+ * Last Modified: Thursday, 21st May 2020 11:08:58 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -108,18 +108,18 @@ function MovieContainer({
   };
 
   const filterHandler = (selectedGenres) => {
-    console.log(selectedGenres);
-
-    setMovies(() => {
-      const filtered = [...filteredMovies].filter((movie) => {
-        const movieGenres = new Set(movie.genre_ids);
-        const genreMatches = selectedGenres.map((genreId) => {
-          return movieGenres.has(genreId);
+    if (selectedGenres)
+      setMovies(() => {
+        const filtered = [...filteredMovies].filter((movie) => {
+          const movieGenres = new Set(movie.genre_ids);
+          const genreMatches = selectedGenres.map((genreId) => {
+            return movieGenres.has(genreId);
+          });
+          return genreMatches.some((item) => item);
         });
-        return genreMatches.some((item) => item);
+        return filtered;
       });
-      return filtered;
-    });
+    else setMovies(() => storedMovies);
   };
 
   const getMovieItems = (moviesList) => {

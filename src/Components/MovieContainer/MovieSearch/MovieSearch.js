@@ -4,7 +4,7 @@
  * File Created: Sunday, 10th May 2020 12:29:51 am
  * Author: Adithya Sreyaj
  * -----
- * Last Modified: Thursday, 21st May 2020 10:19:02 pm
+ * Last Modified: Thursday, 21st May 2020 11:10:05 pm
  * Modified By: Adithya Sreyaj<adi.sreyaj@gmail.com>
  * -----
  */
@@ -42,6 +42,7 @@ export const MovieSearch = ({ genres, changed, filtered }) => {
   const clearFilter = () => {
     setGenreFilter(() => []);
     setIsFiltered(() => false);
+    filtered(undefined);
   };
 
   return (
@@ -68,7 +69,7 @@ export const MovieSearch = ({ genres, changed, filtered }) => {
           aria-label="Search filter"
           onClick={() => toggleFilter()}
         >
-          <div style={{ position: 'relative' }}>
+          <div style={{ position: 'relative', display: 'flex' }}>
             {isFiltered ? (
               <span className={styles['movie-filter--active']}></span>
             ) : null}
